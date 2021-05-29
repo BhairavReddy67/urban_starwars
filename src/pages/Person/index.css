@@ -1,0 +1,11 @@
+.person h1 {
+    color:#f2f2f2 ;
+    font-size: 16px;
+}
+.gender{
+    margin:10px;
+    float: right;
+}
+.person{
+    line-height: 0%;
+}
