@@ -6,6 +6,7 @@ import Search from "@material-ui/icons/Search"
 import Close from "@material-ui/icons/Close"
 import Loader from "react-loader-spinner"
 import IconButton from "@material-ui/core/IconButton"
+import {Link} from "react-router-dom"
 import Person from '../Person';
 import NotFound from '../NotFound';
 
@@ -25,7 +26,7 @@ function HomePage() {
 
   //Here Fecthing Data and storing matched results in data 
   const handlePress=(e)=>{
-    if(e.key=="Enter"||e.target.value==undefined){
+    if((e.key=="Enter"||e.target.value==undefined)&&search_for!=""){
       setLoading(true)
       axios("https://swapi.dev/api/people")
       .then(res=>res.data)
@@ -76,7 +77,13 @@ function HomePage() {
 
           {/* Passing data to Person Component */}
           {(data.length==0 && process)?<NotFound/>:
-            data.map(e=><Person name={e.name} birth={e.birth_year} gender={e.gender}/>)}
+            data.map((e,i)=><Link to={`person/${i+1}`} className="link">
+              <div className="person">
+                <h1>{e.name}</h1>
+                <p className="gender">{e.gender}</p>
+                <p>{e.birth_year}</p>
+            <hr/>
+          </div></Link>)}
       </div>
     </div>
   );

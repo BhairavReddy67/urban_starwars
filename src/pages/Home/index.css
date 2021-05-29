@@ -43,3 +43,21 @@
 .logo img {
     width: 200px;
 }
+.person h1 {
+    color:#f2f2f2 ;
+    font-size: 16px;
+}
+.gender{
+    color:#f2f2f2 ;
+
+    margin:10px;
+    float: right;
+}
+.person{
+    color:#f2f2f2 ;
+
+    line-height: 0%;
+}
+.link{
+    text-decoration: none;
+}
